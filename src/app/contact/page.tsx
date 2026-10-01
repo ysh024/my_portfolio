@@ -17,19 +17,33 @@ import {
   Sparkles,
   HelpCircle,
   MapPin,
+  Loader2,
 } from "lucide-react";
 
 import { TiltCard } from "@/components/ui/TiltCard";
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const formCardRef = React.useRef<HTMLDivElement>(null);
+  const [isFormHovered, setIsFormHovered] = useState(false);
+
+  const handleFormMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!formCardRef.current) return;
+    const rect = formCardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    formCardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    formCardRef.current.style.setProperty("--mouse-y", `${y}px`);
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     phoneOrEmail: "",
-    businessType: "Local Shop / Retail",
-    serviceNeeded: "Complete Business Website",
-    budget: "₹8,000 - ₹15,000 ($100 - $200)",
+    businessType: "Custom Website",
+    budget: "Standard (1-2 weeks)",
     message: "",
   });
 
@@ -39,10 +53,62 @@ export default function ContactPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phoneOrEmail || !formData.message) return;
-    setFormSubmitted(true);
+
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Failed to submit inquiry.");
+      }
+
+      setFormSubmitted(true);
+    } catch (err: unknown) {
+      console.error("Submission error:", err);
+      // Fallback: try direct submission if API route fails and environment variable is present
+      try {
+        const directUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBAPP_URL;
+
+        if (directUrl) {
+          await fetch(directUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: formData.name,
+              emailOrPhone: formData.phoneOrEmail,
+              projectType: formData.businessType,
+              timeline: formData.budget,
+              brief: formData.message,
+            }),
+          });
+          setFormSubmitted(true);
+        } else {
+          throw err;
+        }
+      } catch (fallbackErr) {
+        setErrorMessage(
+          err instanceof Error
+            ? err.message
+            : "Could not submit right now. Please reach out directly on WhatsApp."
+        );
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -144,8 +210,25 @@ export default function ContactPage() {
 
             {/* Right Column: Simple Project Inquiry Form */}
             <div className="lg:col-span-7">
-              <TiltCard className="p-7 sm:p-8">
-                {formSubmitted ? (
+              <div
+                ref={formCardRef}
+                onMouseMove={handleFormMouseMove}
+                onMouseEnter={() => setIsFormHovered(true)}
+                onMouseLeave={() => setIsFormHovered(false)}
+                className="relative rounded-3xl bg-[#14131C] border border-[#262436] hover:border-[#5B448E] p-7 sm:p-8 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-purple-950/40 transition-all duration-300 overflow-hidden group"
+              >
+                {/* Dynamic Cursor-Following Radial Glow Reflection */}
+                <div
+                  className={`pointer-events-none absolute inset-0 transition-opacity duration-300 z-0 ${
+                    isFormHovered ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{
+                    background: `radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.16), transparent 75%)`,
+                  }}
+                />
+
+                <div className="relative z-10">
+                  {formSubmitted ? (
                   <div className="py-10 flex flex-col items-center justify-center text-center gap-4">
                     <div className="w-14 h-14 rounded-2xl bg-[#251545] border border-[#58399E]/60 flex items-center justify-center text-[#A78BFA]">
                       <Check className="w-7 h-7" />
@@ -250,18 +333,26 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-3 rounded-xl bg-red-950/60 border border-red-800/60 text-xs text-red-200">
+                        {errorMessage}
+                      </div>
+                    )}
+
                     <Button
                       type="submit"
                       variant="primary"
                       size="lg"
+                      disabled={isSubmitting}
                       className="w-full justify-center mt-1"
-                      icon={<Send className="w-4 h-4" />}
+                      icon={isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                     >
-                      Send Message
+                      {isSubmitting ? "Submitting Inquiry..." : "Send Message"}
                     </Button>
                   </form>
                 )}
-              </TiltCard>
+                </div>
+              </div>
             </div>
           </div>
         </Container>

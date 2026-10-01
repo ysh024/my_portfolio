@@ -127,3 +127,32 @@ body {
   -webkit-touch-callout: none;
   pointer-events: none;
 }
+
+/* Jitter-Free GPU Float Animations */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes subtle-float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-subtle-float-reverse {
+  animation: subtle-float-reverse 5s ease-in-out infinite;
+  will-change: transform;
+}

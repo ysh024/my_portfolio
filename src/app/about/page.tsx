@@ -120,39 +120,26 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Right Column: 5 cols (Professional Showcase Visual) */}
+            {/* Right Column: 5 cols (Professional Showcase Visual - Jitter-Free) */}
             <div className="lg:col-span-5 flex items-center justify-center lg:justify-end relative pt-4 lg:pt-0">
               {/* Subtle ambient backlight glow */}
               <div className="absolute w-72 sm:w-80 h-72 sm:h-80 rounded-full bg-[#6E06F2]/25 blur-[80px] pointer-events-none -z-10" />
 
-              {/* Floating Tech Pill Top Right */}
-              <motion.div
-                animate={{ y: [-6, 6, -6] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="hidden sm:flex absolute -top-3 -right-2 sm:-right-4 z-30 items-center gap-2 px-3.5 py-2 rounded-2xl bg-[#14131C]/95 border border-[#262436] shadow-xl backdrop-blur-xl text-xs font-semibold text-zinc-200"
-              >
+              {/* Floating Tech Pill Top Right (CSS keyframe animated for zero layout shift) */}
+              <div className="hidden sm:flex absolute -top-3 -right-2 sm:-right-4 z-30 items-center gap-2 px-3.5 py-2 rounded-2xl bg-[#14131C]/95 border border-[#262436] shadow-xl backdrop-blur-xl text-xs font-semibold text-zinc-200 animate-subtle-float">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Next.js • React • TS</span>
-              </motion.div>
+              </div>
 
-              {/* Floating Turnaround Badge Bottom Left */}
-              <motion.div
-                animate={{ y: [6, -6, 6] }}
-                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-                className="hidden sm:flex absolute -bottom-3 -left-2 sm:-left-4 z-30 items-center gap-2.5 px-4 py-2 rounded-2xl bg-[#14131C]/95 border border-[#58399E]/60 shadow-2xl backdrop-blur-xl text-xs font-semibold text-[#DDD6FE]"
-              >
+              {/* Floating Turnaround Badge Bottom Left (CSS keyframe animated) */}
+              <div className="hidden sm:flex absolute -bottom-3 -left-2 sm:-left-4 z-30 items-center gap-2.5 px-4 py-2 rounded-2xl bg-[#14131C]/95 border border-[#58399E]/60 shadow-2xl backdrop-blur-xl text-xs font-semibold text-[#DDD6FE] animate-subtle-float-reverse">
                 <Sparkles className="w-3.5 h-3.5 text-[#A78BFA]" />
                 <span>Turnaround: 3-7 Days</span>
-              </motion.div>
+              </div>
 
-              {/* Sleek Professional Portrait Frame */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative w-full max-w-[320px] sm:max-w-[360px] rounded-3xl p-2 bg-gradient-to-b from-[#262436] via-[#1A1926] to-[#14131C] border border-[#262436] shadow-2xl shadow-purple-950/40"
-              >
-                {/* Inner Image Container with Protection Overlay */}
+              {/* Sleek Professional Portrait Frame (Stable geometry, zero scale jitter) */}
+              <div className="relative w-full max-w-[320px] sm:max-w-[360px] rounded-3xl p-2 bg-gradient-to-b from-[#262436] via-[#1A1926] to-[#14131C] border border-[#262436] shadow-2xl shadow-purple-950/40">
+                {/* Inner Image Container with Fixed Aspect Ratio and Protection Overlay */}
                 <div 
                   className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-[#0D0D12] select-none group"
                   onContextMenu={(e) => e.preventDefault()}
@@ -164,7 +151,7 @@ export default function AboutPage() {
                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 360px, 380px"
                     priority
                     draggable={false}
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105 protected-image"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105 protected-image"
                   />
                   {/* Subtle Gradient Shadow at bottom for depth */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D12]/80 via-transparent to-transparent pointer-events-none" />
@@ -185,7 +172,7 @@ export default function AboutPage() {
                     onDragStart={(e) => e.preventDefault()}
                   />
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </Container>

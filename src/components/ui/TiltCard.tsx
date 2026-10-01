@@ -17,7 +17,6 @@ export function TiltCard({
   ...props
 }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const springConfig = { stiffness: 350, damping: 25 };
@@ -30,13 +29,14 @@ export function TiltCard({
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    setMousePos({ x, y });
+    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = ((y - centerY) / centerY) * -7;
-    const rotY = ((x - centerX) / centerX) * 7;
+    const rotX = ((y - centerY) / centerY) * -5;
+    const rotY = ((x - centerX) / centerX) * 5;
 
     rotateX.set(rotX);
     rotateY.set(rotY);
@@ -63,7 +63,7 @@ export function TiltCard({
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      whileHover={{ y: -6, scale: 1.01 }}
+      whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
       className={cn(
         "relative rounded-3xl bg-[#14131C] border border-[#262436] hover:border-[#5B448E] overflow-hidden backdrop-blur-xl shadow-xl transition-colors duration-300",
@@ -71,12 +71,14 @@ export function TiltCard({
       )}
       {...props}
     >
-      {/* Dynamic Cursor-Following Radial Glow */}
+      {/* Dynamic Cursor-Following Radial Glow without re-renders */}
       <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-0"
+        className={cn(
+          "pointer-events-none absolute inset-0 transition-opacity duration-300 z-0",
+          isHovered ? "opacity-100" : "opacity-0"
+        )}
         style={{
-          opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, ${glowColor}, transparent 80%)`,
+          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${glowColor}, transparent 80%)`,
         }}
       />
 

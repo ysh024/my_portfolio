@@ -10,7 +10,6 @@ import { motion, useSpring } from "framer-motion";
 
 export function ContactCTA() {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const springConfig = { stiffness: 350, damping: 25 };
@@ -23,7 +22,8 @@ export function ContactCTA() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    setMousePos({ x, y });
+    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
@@ -84,7 +84,7 @@ export function ContactCTA() {
             className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-0"
             style={{
               opacity: isHovered ? 1 : 0,
-              background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(124, 58, 237, 0.22), transparent 75%)`,
+              background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.22), transparent 75%)`,
             }}
           />
 

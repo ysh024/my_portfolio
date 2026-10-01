@@ -54,9 +54,10 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     };
   }, []);
 
-  // Smooth scroll to top on route change
+  // Instant and glitch-free scroll reset on route change
   useEffect(() => {
     if (lenisRef.current) {
+      lenisRef.current.resize();
       lenisRef.current.scrollTo(0, { immediate: true });
     }
   }, [pathname]);

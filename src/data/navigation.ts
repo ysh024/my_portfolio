@@ -22,7 +22,7 @@ export const footerLinks = {
   ],
   socials: [
     { label: "WhatsApp", href: "https://wa.me/919718871979", icon: "MessageSquare" },
-    { label: "GitHub", href: "https://github.com/yash-developer", icon: "Github" },
+    { label: "GitHub", href: "https://github.com/ysh024", icon: "Github" },
     { label: "LinkedIn", href: "https://linkedin.com/in/yash-developer", icon: "Linkedin" },
   ]
 };

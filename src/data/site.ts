@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
   email: "yashveer2024@gmail.com",
   whatsappNumber: "+91 97188 71979",
   whatsappLink: "https://wa.me/919718871979?text=Hi%20Yash,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project.",
-  github: "https://github.com/yash-developer",
+  github: "https://github.com/ysh024",
   linkedin: "https://linkedin.com/in/yash-developer",
   twitter: "https://twitter.com/yash_dev",
   bio: "Hi! I am Yash, an independent web developer based in India. I help businesses and creators build modern, fast-loading websites and web applications tailored to their goals.",

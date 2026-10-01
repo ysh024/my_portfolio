@@ -17,7 +17,6 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const springConfig = { stiffness: 350, damping: 25 };
@@ -30,13 +29,14 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    setMousePos({ x, y });
+    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = ((y - centerY) / centerY) * -6;
-    const rotY = ((x - centerX) / centerX) * 6;
+    const rotX = ((y - centerY) / centerY) * -5;
+    const rotY = ((x - centerX) / centerX) * 5;
 
     rotateX.set(rotX);
     rotateY.set(rotY);
@@ -67,7 +67,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      whileHover={{ y: -7, scale: 1.01 }}
+      whileHover={{ y: -6 }}
       className="group relative flex flex-col rounded-3xl bg-[#14131C] border border-[#262436] hover:border-[#5B448E] overflow-hidden backdrop-blur-xl transition-colors duration-300 hover:shadow-2xl hover:shadow-purple-900/30"
     >
       {/* Dynamic Cursor Light Reflection */}
@@ -75,7 +75,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-10"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(124, 58, 237, 0.18), transparent 75%)`,
+          background: `radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.18), transparent 75%)`,
         }}
       />
 
