@@ -1,0 +1,1065 @@
+Exactly. Ab development start karne se pehle humein **portfolio ka complete planning package** ready karna chahiye, taaki coding ke beech mein structure baar-baar change na karna pade.
+
+Main is project ko **Next.js + TypeScript + Framer Motion + static/data-driven architecture** par define kar raha hoon. Backend/database abhi intentionally nahi rakhenge.
+
+# 1. Portfolio Project — Master Definition
+
+**Project name:** Personal Developer Portfolio
+**Positioning:** Independent Web Developer / AI-Assisted Web Developer
+**Primary goal:** Skills, projects, services and development approach ko professional way mein present karna aur potential clients/employers ko contact karne ka clear path dena.
+
+**Target audience:**
+
+* Small/local businesses
+* Startups
+* Creators
+* Individuals needing websites
+* Businesses needing integrations
+* Potential collaborators
+* People evaluating your technical skills
+
+**Primary CTA:** Contact / Let's Work Together
+**Secondary CTA:** View Projects
+
+---
+
+# 2. Recommended Tech Stack
+
+```text
+Framework
+→ Next.js
+
+Language
+→ TypeScript
+
+UI
+→ React + CSS/Tailwind
+
+Animation
+→ Framer Motion
+
+Icons
+→ Lucide React
+
+Fonts
+→ Inter / Geist
+
+Media
+→ WebP / AVIF images
+→ Optimized MP4/WebM where required
+
+Data
+→ Local TypeScript/JSON data
+
+Database
+→ None
+
+Authentication
+→ None
+
+CMS
+→ None
+
+Backend
+→ None initially
+
+Version Control
+→ Git + GitHub
+
+Deployment
+→ Vercel / Cloudflare Pages
+```
+
+### Important
+
+Node.js will be used as the **runtime/development environment**, while Next.js handles the application/frontend architecture.
+
+---
+
+# 3. Complete Website Map
+
+```text
+PORTFOLIO
+│
+├── Home
+│
+├── About
+│
+├── Projects
+│   ├── All Projects
+│   └── Project Details [slug]
+│
+├── Services
+│
+├── Skills
+│
+├── Experiments
+│
+└── Contact
+```
+
+Global:
+
+```text
+Navbar
+Footer
+SEO
+404 Page
+Loading States
+Responsive Navigation
+Scroll Progress / subtle interactions
+```
+
+---
+
+# 4. Home Page Map
+
+```text
+HOME
+│
+├── Navbar
+│
+├── Hero
+│   ├── Profile Image
+│   ├── Status
+│   ├── Name
+│   ├── Professional Title
+│   ├── Short Introduction
+│   ├── View Projects CTA
+│   └── Contact CTA
+│
+├── Trust / Capability Strip
+│
+├── What I Build
+│   ├── Websites
+│   ├── Web Applications
+│   ├── Lead Systems
+│   ├── API Integrations
+│   └── Automation
+│
+├── Featured Projects
+│
+├── Skills & Technologies
+│
+├── Integrations
+│
+├── How I Build
+│
+├── AI-Assisted Development
+│
+├── About Preview
+│
+├── CTA
+│
+└── Footer
+```
+
+---
+
+# 5. About Page
+
+```text
+ABOUT
+│
+├── Page Hero
+│
+├── Profile / Introduction
+│
+├── My Story
+│
+├── What I Do
+│
+├── Development Philosophy
+│
+├── AI-Assisted Workflow
+│
+├── Problem Solving
+│
+├── Current Skills
+│
+├── Currently Exploring
+│
+└── CTA
+```
+
+Don't turn this into a traditional resume.
+
+The focus should be:
+
+**Who you are → what you build → how you work → what you're learning.**
+
+---
+
+# 6. Projects Page
+
+This will be **data-driven**.
+
+```text
+PROJECTS
+│
+├── Header
+│
+├── Category Filters
+│   ├── All
+│   ├── Websites
+│   ├── Web Apps
+│   ├── Integrations
+│   └── Experiments
+│
+├── Project Grid
+│
+└── CTA
+```
+
+Project card:
+
+```text
+Project Image
+Project Name
+Category
+Short Description
+Technology Tags
+View Project
+```
+
+---
+
+# 7. Project Detail Page
+
+Dynamic route:
+
+```text
+/projects/[slug]
+```
+
+Each project gets the same template.
+
+```text
+PROJECT DETAIL
+│
+├── Project Hero
+│   ├── Title
+│   ├── Category
+│   ├── Description
+│   ├── Technology
+│   └── Live Project
+│
+├── Project Preview
+│
+├── Overview
+│
+├── Problem / Objective
+│
+├── Solution
+│
+├── Key Features
+│
+├── Technologies
+│
+├── Integrations
+│
+├── Screenshots / Video
+│
+├── Development Notes
+│
+├── Challenges
+│
+├── What I Learned
+│
+├── Live Website
+│
+└── More Projects
+```
+
+Not every project needs every section. Data can control visibility.
+
+---
+
+# 8. Services Page
+
+Keep this client-friendly.
+
+```text
+SERVICES
+│
+├── Website Development
+├── Landing Pages
+├── Web Applications
+├── Forms & Lead Systems
+├── API Integrations
+├── Payment Integration
+├── Analytics & SEO
+├── Website Maintenance
+│
+├── Development Process
+│
+└── Contact CTA
+```
+
+Each service:
+
+```text
+Icon
+Title
+Short description
+What can be included
+```
+
+No complicated pricing initially.
+
+---
+
+# 9. Skills Page
+
+Organize instead of dumping logos.
+
+### Frontend
+
+```text
+HTML
+CSS
+JavaScript
+TypeScript
+React
+Next.js
+```
+
+### Backend / Data
+
+```text
+Node.js
+Supabase
+REST APIs
+Webhooks
+```
+
+### Integrations
+
+```text
+Razorpay
+Resend
+Google Sheets
+Google Maps
+WhatsApp
+HubSpot
+```
+
+### Deployment
+
+```text
+Git
+GitHub
+Vercel
+Cloudflare
+Netlify
+```
+
+### AI-Assisted Development
+
+```text
+Google AI Studio
+AI-assisted coding
+AI-assisted debugging
+AI-assisted research
+AI-assisted workflow
+```
+
+---
+
+# 10. Experiments Page
+
+This is useful specifically for your portfolio.
+
+```text
+EXPERIMENTS
+│
+├── Header
+│
+├── Experiment Grid
+│
+├── Filters
+│
+└── CTA
+```
+
+Purpose:
+
+> A space for projects, prototypes and technical experiments that demonstrate what I'm currently exploring.
+
+This lets you add new work without pretending every experiment is a finished commercial project.
+
+---
+
+# 11. Contact Page
+
+```text
+CONTACT
+│
+├── Intro
+├── Contact Form
+│   ├── Name
+│   ├── Email
+│   ├── Project Type
+│   ├── Message
+│
+├── Email
+├── WhatsApp
+└── Social Links
+```
+
+For v1, the form can use an external form/email service rather than creating a backend.
+
+---
+
+# 12. Global Components
+
+Create reusable components from the beginning.
+
+```text
+components/
+│
+├── layout/
+│   ├── Navbar
+│   ├── Footer
+│   └── MobileMenu
+│
+├── ui/
+│   ├── Button
+│   ├── Badge
+│   ├── SectionHeading
+│   ├── Container
+│   └── Tag
+│
+├── projects/
+│   ├── ProjectCard
+│   ├── ProjectGrid
+│   ├── ProjectFilter
+│   ├── ProjectHero
+│   └── ProjectGallery
+│
+├── services/
+│   ├── ServiceCard
+│   └── ServiceGrid
+│
+├── skills/
+│   ├── SkillCard
+│   └── SkillGroup
+│
+├── sections/
+│   ├── Hero
+│   ├── WhatIBuild
+│   ├── FeaturedProjects
+│   ├── SkillsPreview
+│   ├── Integrations
+│   ├── Process
+│   ├── AIAssisted
+│   └── CTA
+│
+└── animations/
+    ├── FadeIn
+    ├── Reveal
+    └── Stagger
+```
+
+---
+
+# 13. Data Architecture
+
+No database.
+
+Use:
+
+```text
+src/data/
+├── projects.ts
+├── services.ts
+├── skills.ts
+├── integrations.ts
+├── experiments.ts
+├── navigation.ts
+└── site.ts
+```
+
+### `projects.ts`
+
+Each project should support:
+
+```text
+id
+slug
+title
+category
+shortDescription
+description
+thumbnail
+heroImage
+gallery
+video
+technologies
+features
+integrations
+status
+liveUrl
+githubUrl
+year
+featured
+```
+
+This gives you a very easy future update workflow.
+
+---
+
+# 14. Project Data Example
+
+```ts
+{
+  slug: "business-website",
+  title: "Business Website",
+  category: "Website",
+  shortDescription: "A modern responsive website for a local business.",
+  thumbnail: "/images/projects/business/thumb.webp",
+  heroImage: "/images/projects/business/hero.webp",
+
+  technologies: [
+    "Next.js",
+    "TypeScript",
+    "CSS"
+  ],
+
+  features: [
+    "Responsive design",
+    "Contact form",
+    "SEO optimization",
+    "Analytics"
+  ],
+
+  integrations: [
+    "Google Maps",
+    "WhatsApp",
+    "Google Analytics"
+  ],
+
+  featured: true,
+
+  liveUrl: "https://example.com"
+}
+```
+
+---
+
+# 15. Folder Structure
+
+Recommended final architecture:
+
+```text
+portfolio/
+│
+├── app/
+│   ├── page.tsx
+│   ├── about/
+│   │   └── page.tsx
+│   ├── projects/
+│   │   ├── page.tsx
+│   │   └── [slug]/
+│   │       └── page.tsx
+│   ├── services/
+│   │   └── page.tsx
+│   ├── skills/
+│   │   └── page.tsx
+│   ├── experiments/
+│   │   └── page.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── not-found.tsx
+│   ├── layout.tsx
+│   └── globals.css
+│
+├── components/
+│
+├── data/
+│
+├── public/
+│   ├── images/
+│   │   ├── profile/
+│   │   ├── projects/
+│   │   └── experiments/
+│   ├── videos/
+│   ├── icons/
+│   └── resume/
+│
+├── lib/
+│
+├── types/
+│
+├── README.md
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+├── .env.example
+├── .gitignore
+└── ...
+```
+
+---
+
+# 16. Design System File
+
+Development se pehle ye define karna important hai.
+
+## Typography
+
+Primary:
+
+**Inter / Geist**
+
+Hierarchy:
+
+```text
+Display
+Hero heading
+
+H1
+Page heading
+
+H2
+Section heading
+
+H3
+Card heading
+
+Body
+Normal content
+
+Small
+Metadata / labels
+```
+
+---
+
+# 17. Color Direction
+
+I would avoid making it overly colorful.
+
+Example:
+
+```text
+Background: #0A0A0A
+Surface: #111111
+Surface 2: #181818
+
+Primary Text: #F5F5F5
+Secondary Text: #A1A1AA
+
+Border: #27272A
+
+Accent: One strong brand color
+```
+
+Accent can be finalized after visual exploration.
+
+---
+
+# 18. Animation Rules
+
+Framer Motion should be used, but **not everywhere**.
+
+Use:
+
+* Page entrance
+* Scroll reveal
+* Staggered cards
+* Hover interactions
+* Image transitions
+* Navigation transitions
+* Project filtering
+* CTA interactions
+
+Avoid:
+
+* Constant floating animations
+* Excessive parallax
+* Huge 3D animations
+* Slow page transitions
+* Animations that hurt mobile performance
+
+Goal:
+
+**smooth, premium, not distracting.**
+
+---
+
+# 19. SEO Requirements
+
+Every page gets:
+
+```text
+Title
+Meta description
+Canonical URL
+Open Graph
+Twitter/X metadata
+Structured data where appropriate
+Favicon
+Sitemap
+Robots.txt
+```
+
+Project pages should have their own metadata.
+
+Also:
+
+```text
+Google Search Console
+Google Analytics
+```
+
+can be added after deployment.
+
+---
+
+# 20. Performance Requirements
+
+Target:
+
+```text
+Mobile-first
+Optimized images
+Lazy loading
+Next/Image
+Minimal JavaScript
+Optimized fonts
+Compressed videos
+No unnecessary libraries
+```
+
+Avoid putting giant video files directly into the application bundle.
+
+---
+
+# 21. Accessibility
+
+Before launch:
+
+```text
+Semantic HTML
+Keyboard navigation
+Visible focus states
+Alt text
+Proper headings
+Color contrast
+Reduced-motion support
+Accessible forms
+ARIA only when necessary
+```
+
+---
+
+# 22. Security
+
+Because v1 has no backend:
+
+```text
+No database credentials
+No service-role keys
+No secret API keys
+No authentication
+No sensitive environment variables
+```
+
+If the contact form uses an external service/API, keep any required secret **server-side**, never in `NEXT_PUBLIC_*`.
+
+---
+
+# 23. Content Files You Should Prepare
+
+Before coding, prepare these:
+
+```text
+01 — Brand & Profile
+02 — About Content
+03 — Services Content
+04 — Skills & Technologies
+05 — Projects Data
+06 — Experiments Data
+07 — Contact Information
+08 — Social Links
+09 — SEO Metadata
+10 — Media Assets
+11 — Resume/CV
+12 — Legal / Privacy Content
+```
+
+---
+
+# 24. Media Checklist
+
+Prepare:
+
+### Profile
+
+```text
+profile-main.webp
+profile-about.webp
+```
+
+One good photo may be enough; don't need two if they're basically identical.
+
+### Project media
+
+For every project:
+
+```text
+thumbnail.webp
+hero.webp
+screenshot-01.webp
+screenshot-02.webp
+demo.mp4   (only if useful)
+```
+
+### Brand
+
+```text
+logo.svg
+favicon.svg
+og-image.webp
+```
+
+---
+
+# 25. Important Documents Before Development
+
+I would keep these files in the project:
+
+```text
+docs/
+│
+├── PRD.md
+├── WEBSITE-MAP.md
+├── CONTENT-PLAN.md
+├── DESIGN-SYSTEM.md
+├── COMPONENT-MAP.md
+├── DATA-STRUCTURE.md
+├── SEO-CHECKLIST.md
+├── MEDIA-CHECKLIST.md
+├── DEPLOYMENT.md
+└── CHANGELOG.md
+```
+
+You don't necessarily need to write every one manually now, but **PRD + Website Map + Content Plan + Design System + Data Structure** should be finalized before serious development.
+
+---
+
+# 26. Development Phases
+
+### Phase 1 — Foundation
+
+```text
+Next.js setup
+TypeScript
+Fonts
+Global CSS
+Theme
+Folder structure
+GitHub
+```
+
+### Phase 2 — Core UI
+
+```text
+Navbar
+Footer
+Buttons
+Cards
+Typography
+Containers
+Animations
+```
+
+### Phase 3 — Pages
+
+```text
+Home
+About
+Projects
+Project Detail
+Services
+Skills
+Experiments
+Contact
+```
+
+### Phase 4 — Data
+
+```text
+projects.ts
+services.ts
+skills.ts
+experiments.ts
+site.ts
+```
+
+### Phase 5 — Media
+
+```text
+Profile
+Project images
+Videos
+Logo
+OG image
+```
+
+### Phase 6 — SEO + Accessibility
+
+```text
+Metadata
+Sitemap
+Robots
+Structured data
+Alt text
+Keyboard testing
+```
+
+### Phase 7 — Performance
+
+```text
+Image optimization
+Video optimization
+JS reduction
+Mobile testing
+Animation optimization
+```
+
+### Phase 8 — Deployment
+
+```text
+GitHub
+↓
+Vercel / Cloudflare
+↓
+Custom domain
+↓
+Analytics
+↓
+Search Console
+↓
+Final testing
+```
+
+---
+
+# 27. Future Upgrade Path
+
+This is important because we're deliberately **not building a backend now**.
+
+### Version 1
+
+```text
+Next.js
++
+Static Data
++
+GitHub
++
+Hosting
+```
+
+### Version 2
+
+If you start getting lots of projects:
+
+```text
+Next.js
++
+Supabase
++
+Admin Panel
+```
+
+### Version 3
+
+If you need content management:
+
+```text
+Next.js
++
+CMS / Supabase
++
+Admin
++
+Authentication
+```
+
+So we're **not blocking future expansion**.
+
+---
+
+# 28. Final MVP
+
+The first version should launch with:
+
+```text
+✓ Home
+✓ About
+✓ Projects
+✓ Dynamic project pages
+✓ Services
+✓ Skills
+✓ Experiments
+✓ Contact
+✓ Profile photo
+✓ Project screenshots
+✓ Responsive design
+✓ Framer Motion
+✓ SEO
+✓ Accessibility
+✓ Performance optimization
+✓ GitHub
+✓ Deployment
+```
+
+And deliberately:
+
+```text
+✗ Database
+✗ Login
+✗ Admin panel
+✗ CMS
+✗ Complex backend
+✗ Unnecessary API integrations
+```
+
+This keeps the first release focused.
+
+---
+
+## One thing I would change from our earlier plan
+
+I **wouldn't make "Skills" a completely separate top-level page unless the content becomes substantial**.
+
+For a personal developer portfolio, the strongest navigation can be:
+
+```text
+Home
+About
+Projects
+Services
+Experiments
+Contact
+```
+
+And **Skills/Technologies** can be a strong section on Home + About.
+
+That keeps the navigation clean while still showing everything.
+
+### Final navigation
+
+```text
+YASH
+────────────────────────────────
+Home   About   Projects   Services
+Experiments                         Contact
+```
+
+This is the structure I'd freeze before development.
+
+**Next, the most useful thing to prepare is the actual content package**—exact Home copy, About copy, Services copy, project-card fields, project case-study template, Experiments template, CTA text, SEO titles/descriptions, and the `projects.ts / services.ts / skills.ts` data structure. That becomes the actual content source for the Next.js build rather than leaving the AI/developer to invent content while coding.

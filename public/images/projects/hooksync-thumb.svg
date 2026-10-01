@@ -1,0 +1,40 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0A0F12"/>
+  <circle cx="400" cy="225" r="230" fill="url(#hook_glow)" opacity="0.3"/>
+
+  <rect x="90" y="50" width="620" height="350" rx="16" fill="#11191E" stroke="#1E2E38" stroke-width="1.5"/>
+  <rect x="90" y="50" width="620" height="46" rx="16" fill="#18242B"/>
+  <text x="120" y="78" fill="#14B8A6" font-family="system-ui, sans-serif" font-size="14" font-weight="700">HookSync &bull; Multi-Target Webhook Router</text>
+  <rect x="540" y="60" width="140" height="24" rx="6" fill="#134E4A" stroke="#0D9488"/>
+  <text x="610" y="76" fill="#5EEAD4" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Status: 99.99% Uptime</text>
+
+  <!-- Left Flow Diagram -->
+  <rect x="120" y="125" width="220" height="240" rx="10" fill="#0C1418" stroke="#1A2B33"/>
+  <text x="140" y="155" fill="#5EEAD4" font-family="system-ui, sans-serif" font-size="12" font-weight="600">INCOMING PAYLOAD</text>
+  <rect x="140" y="170" width="180" height="36" rx="6" fill="#162730" stroke="#233E4C"/>
+  <text x="155" y="193" fill="#E2E8F0" font-family="monospace" font-size="11">POST /api/webhooks</text>
+  
+  <rect x="140" y="220" width="180" height="60" rx="6" fill="#162730" stroke="#233E4C"/>
+  <text x="155" y="245" fill="#94A3B8" font-family="monospace" font-size="10">HMAC-SHA256: VALID</text>
+  <text x="155" y="265" fill="#10B981" font-family="monospace" font-size="10">&bull; Stripe / Razorpay OK</text>
+
+  <!-- Flow Arrows & Broadcast Nodes -->
+  <rect x="390" y="125" width="290" height="240" rx="10" fill="#0C1418" stroke="#1A2B33"/>
+  <text x="410" y="155" fill="#5EEAD4" font-family="system-ui, sans-serif" font-size="12" font-weight="600">DESTINATION FAN-OUT</text>
+  
+  <rect x="410" y="170" width="250" height="40" rx="6" fill="#162730"/>
+  <text x="430" y="195" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="12">1. Discord Alerts Bot (200 OK)</text>
+
+  <rect x="410" y="220" width="250" height="40" rx="6" fill="#162730"/>
+  <text x="430" y="245" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="12">2. Supabase DB Audit Log (200 OK)</text>
+
+  <rect x="410" y="270" width="250" height="40" rx="6" fill="#162730"/>
+  <text x="430" y="295" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="12">3. CRM Webhook Delivery (200 OK)</text>
+
+  <defs>
+    <radialGradient id="hook_glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#0D9488"/>
+      <stop offset="100%" stop-color="#0D9488" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

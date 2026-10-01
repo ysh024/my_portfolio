@@ -1,0 +1,41 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0C0A14"/>
+  <circle cx="400" cy="200" r="230" fill="url(#prompt_glow)" opacity="0.35"/>
+
+  <!-- Code Workspace -->
+  <rect x="80" y="50" width="640" height="350" rx="16" fill="#13111C" stroke="#2E2844" stroke-width="1.5"/>
+  <rect x="80" y="50" width="640" height="45" rx="16" fill="#1C182B"/>
+  <text x="110" y="78" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="14" font-weight="700">PromptCraft &bull; Multimodal LLM Studio</text>
+  <rect x="560" y="60" width="130" height="24" rx="6" fill="#7C3AED"/>
+  <text x="625" y="76" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Export TypeScript</text>
+
+  <!-- Left Editor Pane -->
+  <rect x="100" y="110" width="290" height="265" rx="10" fill="#0E0C17" stroke="#252037"/>
+  <text x="120" y="135" fill="#A78BFA" font-family="monospace" font-size="11">// System Prompt Input</text>
+  <text x="120" y="160" fill="#E2E8F0" font-family="monospace" font-size="11">You are an expert Next.js</text>
+  <text x="120" y="180" fill="#E2E8F0" font-family="monospace" font-size="11">architect. Output strict</text>
+  <text x="120" y="200" fill="#E2E8F0" font-family="monospace" font-size="11">JSON matching the schema:</text>
+  <text x="120" y="225" fill="#38BDF8" font-family="monospace" font-size="11">{"name": string, "seo": []}</text>
+  
+  <rect x="120" y="325" width="250" height="30" rx="6" fill="#1C182B"/>
+  <text x="135" y="344" fill="#94A3B8" font-family="monospace" font-size="10">Tokens: 382 &bull; Latency: 140ms</text>
+
+  <!-- Right Response Pane -->
+  <rect x="410" y="110" width="290" height="265" rx="10" fill="#0E0C17" stroke="#252037"/>
+  <text x="430" y="135" fill="#34D399" font-family="monospace" font-size="11">// JSON Output (Gemini 1.5 Pro)</text>
+  <text x="430" y="165" fill="#F472B6" font-family="monospace" font-size="11">{</text>
+  <text x="450" y="185" fill="#38BDF8" font-family="monospace" font-size="11">"status": <tspan fill="#FDE047">"success"</tspan>,</text>
+  <text x="450" y="205" fill="#38BDF8" font-family="monospace" font-size="11">"cache_hit": <tspan fill="#6EE7B7">true</tspan>,</text>
+  <text x="450" y="225" fill="#38BDF8" font-family="monospace" font-size="11">"score": <tspan fill="#FDE047">0.994</tspan></text>
+  <text x="430" y="245" fill="#F472B6" font-family="monospace" font-size="11">}</text>
+  
+  <rect x="430" y="315" width="250" height="42" rx="6" fill="#2E1065" stroke="#7C3AED"/>
+  <text x="445" y="340" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="11" font-weight="600">&check; Passed TypeGuard Validation</text>
+
+  <defs>
+    <radialGradient id="prompt_glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
