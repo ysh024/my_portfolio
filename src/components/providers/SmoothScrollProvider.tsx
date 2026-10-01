@@ -13,17 +13,26 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   const pathname = usePathname();
 
   useEffect(() => {
-    // Pro-tier silky smooth easing physics
+    // Detect mobile / touch devices to use native 120Hz hardware momentum scrolling
+    const isTouchDevice =
+      typeof window !== "undefined" &&
+      ("ontouchstart" in window || navigator.maxTouchPoints > 0 || window.matchMedia("(pointer: coarse)").matches);
+
+    if (isTouchDevice) {
+      return; // Leave scrolling to native mobile hardware compositor
+    }
+
+    // Pro-tier silky smooth easing physics for desktop mouse wheels
     const lenis = new Lenis({
-      duration: 1.25,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ultra smooth exponential ease-out
+      duration: 1.1,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.6,
+      touchMultiplier: 0, // Disable touch interception
       infinite: false,
-      autoRaf: false, // controlled explicitly via requestAnimationFrame for flawless frame syncing
+      autoRaf: false,
     });
 
     lenisRef.current = lenis;

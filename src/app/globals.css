@@ -99,22 +99,17 @@ body {
   transform: translateY(-1px);
 }
 
-/* Custom sleek scrollbar */
+/* Hide sidebar scrollbar cleanly across browsers (replaced with modern top header progress line) */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
 ::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0D0D12;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #262436;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #4B3E75;
+  display: none;
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
 
 /* Image Download & Interaction Protection */
@@ -155,4 +150,20 @@ body {
 .animate-subtle-float-reverse {
   animation: subtle-float-reverse 5s ease-in-out infinite;
   will-change: transform;
+}
+
+@keyframes breathing-glow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.16;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.18);
+    opacity: 0.32;
+  }
+}
+
+.animate-breathing-glow {
+  animation: breathing-glow 6s ease-in-out infinite;
+  will-change: transform, opacity;
 }

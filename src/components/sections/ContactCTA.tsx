@@ -18,6 +18,7 @@ export function ContactCTA() {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
+    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -58,26 +59,15 @@ export function ContactCTA() {
             rotateY,
             transformStyle: "preserve-3d",
           }}
-          initial={{ opacity: 0, y: 35, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
           whileHover={{ y: -6 }}
           className="group relative rounded-3xl bg-gradient-to-b from-[#1C1929] via-[#14131C] to-[#0D0D12] border border-[#262436] hover:border-[#7C3AED]/70 p-8 sm:p-12 md:p-16 text-center overflow-hidden shadow-2xl shadow-purple-950/40 backdrop-blur-2xl transition-colors duration-300"
         >
-          {/* 1. Animated Breathing Ambient Purple Glow Orb */}
-          <motion.div
-            animate={{
-              scale: [1, 1.25, 1],
-              opacity: [0.15, 0.35, 0.15],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 5.5,
-              ease: "easeInOut",
-            }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-gradient-to-tr from-[#6E06F2]/30 via-[#7C3AED]/25 to-[#38BDF8]/15 blur-[110px] pointer-events-none -z-10"
-          />
+          {/* 1. GPU-Composited Animated Breathing Ambient Purple Glow Orb */}
+          <div className="absolute top-1/2 left-1/2 w-[550px] h-[300px] bg-gradient-to-tr from-[#6E06F2]/30 via-[#7C3AED]/25 to-[#38BDF8]/15 blur-[100px] pointer-events-none -z-10 animate-breathing-glow" />
 
           {/* 2. Dynamic Cursor-Following Radial Glow Reflection */}
           <div

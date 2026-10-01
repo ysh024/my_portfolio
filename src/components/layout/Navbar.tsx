@@ -9,18 +9,26 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 
 export function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Smooth scroll progress tracking
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 280,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -30,7 +38,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,padding,box-shadow] duration-200 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-[100] border-b transition-[background-color,border-color,padding,box-shadow] duration-200 ease-out ${
         isScrolled
           ? "py-3.5 bg-[#0D0D12]/90 backdrop-blur-xl border-[#262436] shadow-xl shadow-black/40"
           : "py-5 bg-transparent border-transparent"
@@ -92,7 +100,8 @@ export function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="md:hidden p-2 rounded-2xl bg-[#14131C] border border-[#262436] text-zinc-300 hover:text-white"
+              aria-expanded={mobileMenuOpen}
+              className="md:hidden p-2.5 rounded-2xl bg-[#14131C] border border-[#262436] text-zinc-300 hover:text-white"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -144,6 +153,12 @@ export function Navbar() {
           )}
         </AnimatePresence>
       </Container>
+
+      {/* Modern Scroll Progress Indicator Line under Header */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#6E06F2] via-[#A78BFA] to-[#38BDF8] shadow-[0_0_10px_rgba(167,139,250,0.8)] pointer-events-none z-50"
+        style={{ scaleX, transformOrigin: "0%" }}
+      />
     </header>
   );
 }

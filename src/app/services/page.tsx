@@ -34,7 +34,7 @@ export default function ServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <SectionHeading
               badge="Services"
@@ -51,10 +51,10 @@ export default function ServicesPage() {
               <motion.div
                 key={svc.id}
                 id={svc.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
               >
                 <TiltCard
                   className={`p-8 h-full flex flex-col justify-between ${

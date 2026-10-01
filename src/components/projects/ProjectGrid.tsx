@@ -62,7 +62,12 @@ export function ProjectGrid({
   return (
     <div className="flex flex-col gap-8">
       {(showFilter || showSearch) && (
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4"
+        >
           {showFilter && (
             <ProjectFilter
               categories={categories}
@@ -84,7 +89,7 @@ export function ProjectGrid({
               />
             </div>
           )}
-        </div>
+        </motion.div>
       )}
 
       {/* Grid */}
@@ -92,7 +97,7 @@ export function ProjectGrid({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
-              <ProjectCard key={project.id} project={project} priority={idx < 2} />
+              <ProjectCard key={project.id} project={project} priority={idx < 2} index={idx} />
             ))}
           </AnimatePresence>
         </div>

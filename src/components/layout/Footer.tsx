@@ -41,8 +41,8 @@ export function Footer() {
                 href={siteConfig.whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Chat on WhatsApp"
-                className="w-9 h-9 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-emerald-400 hover:border-emerald-700/60 transition-colors"
+                aria-label="Chat with Yash on WhatsApp"
+                className="w-10 h-10 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-emerald-400 hover:border-emerald-700/60 transition-colors"
               >
                 <WhatsappIcon className="w-4 h-4" />
               </a>
@@ -50,8 +50,8 @@ export function Footer() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="GitHub Profile"
-                className="w-9 h-9 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#5B448E] transition-colors"
+                aria-label="View Yash's GitHub Profile"
+                className="w-10 h-10 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#5B448E] transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
               </a>
@@ -59,8 +59,8 @@ export function Footer() {
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="LinkedIn Profile"
-                className="w-9 h-9 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#5B448E] transition-colors"
+                aria-label="View Yash's LinkedIn Profile"
+                className="w-10 h-10 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#5B448E] transition-colors"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -68,8 +68,8 @@ export function Footer() {
                 href={siteConfig.twitter}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Twitter Profile"
-                className="w-9 h-9 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#5B448E] transition-colors"
+                aria-label="View Yash's Twitter Profile"
+                className="w-10 h-10 rounded-xl bg-[#14131C] border border-[#262436] flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#5B448E] transition-colors"
               >
                 <TwitterIcon className="w-4 h-4" />
               </a>
@@ -135,7 +135,8 @@ export function Footer() {
             </div>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 text-xs text-zinc-400 hover:text-white transition-colors self-start mt-1"
+              aria-label="Scroll back to top of page"
+              className="inline-flex items-center gap-1.5 text-xs text-zinc-400 hover:text-white transition-colors self-start mt-1 p-1 -ml-1"
             >
               <ArrowUp className="w-3.5 h-3.5" /> Back to Top
             </button>

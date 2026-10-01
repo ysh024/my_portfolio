@@ -11,44 +11,24 @@ import { siteConfig } from "@/data/site";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import { ArrowRight, Sparkles, Code2, Zap, ShieldCheck } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
-    <div className="pt-28 pb-20 purple-glow-bg relative">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-20 purple-glow-bg relative">
       {/* 1. Hero Section: Modern 2-Column Professional Showcase */}
-      <section className="relative pt-6 sm:pt-10 pb-16 sm:pb-24 overflow-hidden">
+      <section className="relative pt-4 sm:pt-8 pb-12 sm:pb-20 overflow-hidden">
         <Container size="large">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* Left Column: 7 cols (Text, Pitch, Metrics, CTAs) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Column: 7 cols (Text, Pitch, Metrics, CTAs - Smooth unified animation like Services) */}
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="lg:col-span-7 flex flex-col items-start text-left gap-6"
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 flex flex-col items-start text-left gap-5 sm:gap-6"
             >
               {/* Availability & Location Status Badge */}
-              <motion.div variants={itemVariants} className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap">
                 <Badge variant="purple" className="px-3.5 py-1.5 text-xs font-semibold backdrop-blur-xl bg-[#14131C] shadow-lg border-[#58399E]/60 flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -58,27 +38,21 @@ export default function AboutPage() {
                 </Badge>
                 <span className="hidden sm:inline-block text-xs font-medium text-zinc-500">•</span>
                 <span className="text-xs font-medium text-zinc-400 font-mono">📍 {siteConfig.location}</span>
-              </motion.div>
+              </div>
 
               {/* Main Headline */}
-              <motion.h1
-                variants={itemVariants}
-                className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]"
-              >
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
                 Building high-performance websites &amp;{" "}
                 <span className="text-gradient-accent">modern web experiences</span>.
-              </motion.h1>
+              </h1>
 
               {/* Professional Pitch / Summary */}
-              <motion.p
-                variants={itemVariants}
-                className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl font-normal"
-              >
+              <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl font-normal">
                 Hi, I&apos;m <strong className="text-white font-semibold">{siteConfig.name}</strong> — {siteConfig.role}. I partner with founders, businesses, and creators to engineer fast, conversion-focused websites, custom web applications, and seamless digital solutions.
-              </motion.p>
+              </p>
 
               {/* Feature Highlights Pills */}
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-2.5 pt-1">
+              <div className="flex flex-wrap gap-2.5 pt-1">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#14131C] border border-[#262436] text-xs text-zinc-300 font-medium">
                   <span className="text-[#A78BFA]">⚡</span> Ultra-Fast 95+ Performance
                 </div>
@@ -88,10 +62,10 @@ export default function AboutPage() {
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#14131C] border border-[#262436] text-xs text-zinc-300 font-medium">
                   <span className="text-[#A78BFA]">💬</span> Direct WhatsApp Support
                 </div>
-              </motion.div>
+              </div>
 
               {/* CTA Action Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3.5 pt-2">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <Button
                   href={siteConfig.whatsappLink}
                   target="_blank"
@@ -117,11 +91,16 @@ export default function AboutPage() {
                 >
                   View Projects
                 </Button>
-              </motion.div>
+              </div>
             </motion.div>
 
             {/* Right Column: 5 cols (Professional Showcase Visual - Jitter-Free) */}
-            <div className="lg:col-span-5 flex items-center justify-center lg:justify-end relative pt-4 lg:pt-0">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="lg:col-span-5 flex items-center justify-center lg:justify-end relative pt-4 lg:pt-0"
+            >
               {/* Subtle ambient backlight glow */}
               <div className="absolute w-72 sm:w-80 h-72 sm:h-80 rounded-full bg-[#6E06F2]/25 blur-[80px] pointer-events-none -z-10" />
 
@@ -148,6 +127,7 @@ export default function AboutPage() {
                     src="/images/profile/avatar.png"
                     alt={siteConfig.name}
                     fill
+                    quality={85}
                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 360px, 380px"
                     priority
                     draggable={false}
@@ -173,37 +153,37 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </Container>
       </section>
 
       {/* 2. Overview Metrics Strip: Floating Bento Card with Cursor-following Tilt */}
-      <section className="py-10 relative z-20">
+      <section className="py-8 sm:py-10 relative z-20">
         <Container size="large">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5"
           >
-            <TiltCard className="p-6 text-center">
+            <TiltCard className="p-5 sm:p-6 text-center">
               <span className="text-2xl sm:text-3xl font-extrabold text-white block">3 - 7 Days</span>
               <span className="text-xs text-zinc-400 mt-1 block">Average Turnaround</span>
             </TiltCard>
 
-            <TiltCard className="p-6 text-center">
+            <TiltCard className="p-5 sm:p-6 text-center">
               <span className="text-2xl sm:text-3xl font-extrabold text-white block">100%</span>
               <span className="text-xs text-zinc-400 mt-1 block">Mobile Optimized</span>
             </TiltCard>
 
-            <TiltCard className="p-6 text-center">
+            <TiltCard className="p-5 sm:p-6 text-center">
               <span className="text-2xl sm:text-3xl font-extrabold text-white block">Direct</span>
               <span className="text-xs text-zinc-400 mt-1 block">1-on-1 Collaboration</span>
             </TiltCard>
 
-            <TiltCard className="p-6 text-center">
+            <TiltCard className="p-5 sm:p-6 text-center">
               <span className="text-2xl sm:text-3xl font-extrabold text-[#A78BFA] block">Next.js</span>
               <span className="text-xs text-zinc-400 mt-1 block">Modern Tech Stack</span>
             </TiltCard>
@@ -212,14 +192,14 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Story Section with Stacking Layer & Scroll Reveal */}
-      <section className="py-20 relative z-30">
+      <section className="py-14 sm:py-20 relative z-30">
         <Container size="default">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col gap-8"
+            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+            transition={{ duration: 0.45 }}
+            className="flex flex-col gap-6 sm:gap-8"
           >
             <div className="text-center max-w-2xl mx-auto flex flex-col items-center gap-2">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
@@ -231,7 +211,7 @@ export default function AboutPage() {
             </div>
 
             {/* Continuous narrative Tilt card */}
-            <TiltCard className="p-8 sm:p-12 text-base sm:text-lg text-zinc-300 leading-relaxed space-y-6 shadow-2xl">
+            <TiltCard className="p-6 sm:p-10 md:p-12 text-base sm:text-lg text-zinc-300 leading-relaxed space-y-5 sm:space-y-6 shadow-2xl">
               <p className="first-letter:text-5xl first-letter:font-extrabold first-letter:text-[#A78BFA] first-letter:mr-3 first-letter:float-left first-letter:leading-none">
                 {siteConfig.aboutStory[0]}
               </p>
@@ -247,32 +227,32 @@ export default function AboutPage() {
       </section>
 
       {/* 4. Development Principles: Staggered Scroll Reveal with Floating Cards */}
-      <section className="py-20 relative z-40">
+      <section className="py-14 sm:py-20 relative z-40">
         <Container size="large">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+            transition={{ duration: 0.4 }}
           >
             <SectionHeading
               title="Development"
               highlight="Principles"
               description="Core standards that guide every project."
-              className="mb-12"
+              className="mb-10 sm:mb-12"
             />
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             {siteConfig.philosophy.map((item, idx) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
               >
-                <TiltCard className="p-7 h-full flex flex-col gap-3">
+                <TiltCard className="p-6 sm:p-7 h-full flex flex-col gap-3">
                   <div className="flex items-center gap-3">
                     <span className="w-9 h-9 rounded-xl bg-[#251545] text-[#C4B5FD] border border-[#58399E]/60 flex items-center justify-center font-mono text-xs font-bold shrink-0">
                       0{idx + 1}
@@ -292,7 +272,7 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Contact CTA */}
-      <div className="relative z-50">
+      <div className="relative z-10">
         <ContactCTA />
       </div>
     </div>

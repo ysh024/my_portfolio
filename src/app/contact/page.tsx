@@ -21,23 +21,13 @@ import {
 } from "lucide-react";
 
 import { TiltCard } from "@/components/ui/TiltCard";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const formCardRef = React.useRef<HTMLDivElement>(null);
-  const [isFormHovered, setIsFormHovered] = useState(false);
-
-  const handleFormMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!formCardRef.current) return;
-    const rect = formCardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    formCardRef.current.style.setProperty("--mouse-x", `${x}px`);
-    formCardRef.current.style.setProperty("--mouse-y", `${y}px`);
-  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -135,17 +125,28 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative pb-12">
         <Container size="large">
-          <SectionHeading
-            badge="Contact"
-            title="Let&apos;s Discuss"
-            highlight="Your Project"
-            description="Have a question or want to discuss a new web project? Reach out directly."
-            className="mb-14"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <SectionHeading
+              badge="Contact"
+              title="Let's Discuss"
+              highlight="Your Project"
+              description="Have a question or want to discuss a new web project? Reach out directly."
+              className="mb-14"
+            />
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left Column: Direct Fast Channels */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="lg:col-span-5 flex flex-col gap-6"
+            >
               <TiltCard className="p-7 flex flex-col gap-5">
                 <h3 className="text-base font-bold text-white flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#A78BFA]" /> Direct Communication
@@ -206,29 +207,17 @@ export default function ContactPage() {
                   </div>
                 </div>
               </TiltCard>
-            </div>
+            </motion.div>
 
-            {/* Right Column: Simple Project Inquiry Form */}
-            <div className="lg:col-span-7">
-              <div
-                ref={formCardRef}
-                onMouseMove={handleFormMouseMove}
-                onMouseEnter={() => setIsFormHovered(true)}
-                onMouseLeave={() => setIsFormHovered(false)}
-                className="relative rounded-3xl bg-[#14131C] border border-[#262436] hover:border-[#5B448E] p-7 sm:p-8 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-purple-950/40 transition-all duration-300 overflow-hidden group"
-              >
-                {/* Dynamic Cursor-Following Radial Glow Reflection */}
-                <div
-                  className={`pointer-events-none absolute inset-0 transition-opacity duration-300 z-0 ${
-                    isFormHovered ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    background: `radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.16), transparent 75%)`,
-                  }}
-                />
-
-                <div className="relative z-10">
-                  {formSubmitted ? (
+            {/* Right Column: Simple Project Inquiry Form with TiltCard Hover Animation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="lg:col-span-7"
+            >
+              <TiltCard className="p-7 sm:p-8">
+                {formSubmitted ? (
                   <div className="py-10 flex flex-col items-center justify-center text-center gap-4">
                     <div className="w-14 h-14 rounded-2xl bg-[#251545] border border-[#58399E]/60 flex items-center justify-center text-[#A78BFA]">
                       <Check className="w-7 h-7" />
@@ -351,9 +340,8 @@ export default function ContactPage() {
                     </Button>
                   </form>
                 )}
-                </div>
-              </div>
-            </div>
+              </TiltCard>
+            </motion.div>
           </div>
         </Container>
       </section>
