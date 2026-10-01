@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
@@ -16,7 +15,6 @@ import {
   ShieldCheck,
   Check,
   Clock,
-  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -69,11 +67,6 @@ export default function ServicesPage() {
                         {iconMap[svc.iconName] || <Globe className="w-6 h-6 text-[#A78BFA]" />}
                       </div>
                       <div className="flex items-center gap-2">
-                        {svc.popular && (
-                          <Badge variant="purple">
-                            <Sparkles className="w-3 h-3 mr-1 text-[#A78BFA]" /> Most Popular
-                          </Badge>
-                        )}
                         <span className="text-xs px-3 py-1 rounded-full bg-[#1A1926] text-zinc-300 font-semibold border border-[#262436] flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5 text-[#A78BFA]" /> {svc.timeline}
                         </span>

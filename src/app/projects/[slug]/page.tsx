@@ -131,6 +131,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             src={project.heroImage}
             alt={project.title}
             fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
             priority
             className="object-cover object-top"
           />

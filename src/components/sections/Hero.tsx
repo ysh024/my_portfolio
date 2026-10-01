@@ -116,12 +116,22 @@ export function Hero() {
               <div className="relative rounded-3xl bg-zinc-900/90 border border-zinc-800/90 p-6 backdrop-blur-xl shadow-2xl flex flex-col gap-5">
                 {/* Profile Header */}
                 <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-indigo-500/40 shrink-0 shadow-lg">
+                  <div 
+                    className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-indigo-500/40 shrink-0 shadow-lg select-none"
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
                     <Image
-                      src="/images/profile/avatar.jpg"
+                      src="/images/profile/avatar.png"
                       alt={siteConfig.name}
                       fill
-                      className="object-cover"
+                      sizes="64px"
+                      draggable={false}
+                      className="object-cover protected-image"
+                    />
+                    <div 
+                      className="absolute inset-0 z-20"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </div>
                   <div className="flex flex-col">

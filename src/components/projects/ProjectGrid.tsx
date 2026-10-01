@@ -23,7 +23,7 @@ export function ProjectGrid({
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const categories: ProjectCategory[] = ["All", "Websites", "Web Apps", "Integrations", "Experiments"];
+  const categories: ProjectCategory[] = ["All", "Websites", "Web Apps", "Integrations"];
 
   const counts = useMemo(() => {
     const map: Record<ProjectCategory, number> = {
@@ -31,7 +31,6 @@ export function ProjectGrid({
       Websites: projects.filter((p) => p.category === "Websites").length,
       "Web Apps": projects.filter((p) => p.category === "Web Apps").length,
       Integrations: projects.filter((p) => p.category === "Integrations").length,
-      Experiments: projects.filter((p) => p.category === "Experiments").length,
     };
     return map;
   }, [projects]);

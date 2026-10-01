@@ -85,6 +85,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
           src={project.thumbnail}
           alt={project.title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={priority}
           className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />

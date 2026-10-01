@@ -2,18 +2,16 @@ import { NavItem } from "@/types";
 
 export const navItems: NavItem[] = [
   { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
   { label: "Services", href: "/services" },
-  { label: "Experiments", href: "/experiments" },
+  { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const footerLinks = {
   navigation: [
     { label: "About Yash", href: "/about" },
-    { label: "Client Projects", href: "/projects" },
     { label: "Services & Pricing", href: "/services" },
-    { label: "Experiments & Lab", href: "/experiments" },
+    { label: "Client Projects", href: "/projects" },
     { label: "Contact / WhatsApp", href: "/contact" },
   ],
   services: [

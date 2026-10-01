@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { siteConfig } from "@/data/site";
 
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -64,14 +66,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0D0D12] text-[#FCFCFD] selection:bg-[#7C3AED] selection:text-white">
-        <Navbar />
-        <main className="flex-1 flex flex-col">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
+      <body className="min-h-screen flex flex-col bg-[#0D0D12] text-[#FCFCFD] selection:bg-[#7C3AED] selection:text-white">
+        <SmoothScrollProvider>
+          <div className="flex flex-col min-h-screen w-full overflow-x-clip">
+            <Navbar />
+            <main className="flex-1 flex flex-col">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+          </div>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

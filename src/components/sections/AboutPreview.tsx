@@ -19,12 +19,22 @@ export function AboutPreview() {
           <div className="lg:col-span-5">
             <div className="rounded-3xl bg-zinc-900/60 border border-zinc-800/80 p-6 sm:p-8 backdrop-blur-md flex flex-col gap-5">
               <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-zinc-700/60 shrink-0">
+                <div 
+                  className="relative w-16 h-16 rounded-2xl overflow-hidden border border-zinc-700/60 shrink-0 select-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                >
                   <Image
-                    src="/images/profile/avatar.jpg"
+                    src="/images/profile/avatar.png"
                     alt={siteConfig.name}
                     fill
-                    className="object-cover"
+                    sizes="64px"
+                    draggable={false}
+                    className="object-cover protected-image"
+                  />
+                  <div 
+                    className="absolute inset-0 z-20"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                   />
                 </div>
                 <div>

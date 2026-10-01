@@ -1,10 +1,10 @@
-export type ProjectCategory = "All" | "Websites" | "Web Apps" | "Integrations" | "Experiments";
+export type ProjectCategory = "All" | "Websites" | "Web Apps" | "Integrations";
 
 export interface Project {
   id: string;
   slug: string;
   title: string;
-  category: "Websites" | "Web Apps" | "Integrations" | "Experiments";
+  category: "Websites" | "Web Apps" | "Integrations";
   shortDescription: string;
   description: string;
   overview: string;
@@ -50,19 +50,6 @@ export interface Skill {
   highlight?: boolean;
 }
 
-export interface Experiment {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  category: string;
-  date: string;
-  tags: string[];
-  previewType: "component" | "interactive" | "demo";
-  demoUrl?: string;
-  status: "Active" | "Prototype";
-  highlight?: string;
-}
 
 export interface SiteConfig {
   name: string;
